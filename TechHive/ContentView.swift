@@ -9,16 +9,32 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView {
+            List(posts) { post in
+                Text(post.title)
+            }
+            
+            
+            
+            .navigationTitle("TechHive")
         }
-        .padding()
+        
+        
     }
 }
 
 #Preview {
     ContentView()
 }
+
+struct Post: Identifiable {
+    let id: String
+    let title: String
+}
+
+let posts = [
+    Post(id: "1", title: "Hi"),
+    Post(id: "2", title: "Hello"),
+    Post(id: "3", title: "Xin chao"),
+    
+]
